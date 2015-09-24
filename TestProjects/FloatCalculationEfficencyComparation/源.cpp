@@ -27,7 +27,12 @@ using namespace DaBianYLK;
  *
  * 结果分析：
  *		1. 浮点数乘法、加减法效率相近，除法效率最低
- *		2. 在Release模式下，浮点数乘法效率与除法的效率比约为1比30
+ *		2. 在Release模式下，浮点数乘法效率与除法的时间消耗比约为 1 ： 30
+*
+* 结论：
+*		在希望效率最大化的情况下，需要尽量避免浮点数除法运算：
+*		1. 精度要求不高时可以改为整数除法运算或移位运算
+*		2. 多次除以同一个变量时，先转化为倒数，再使用乘法
  */
 
 inline float Mul(float a, float b) {
@@ -48,59 +53,61 @@ inline float Sub(float a, float b) {
 
 int main(void) {
 	const unsigned int nCalculation = 99999999;
-	float pastTime = 0.0f;
 
 	// ************************* 乘法 *************************
-	float a = 1.11112f;
+	float factor = 1.11112f;
 	float result = 12345.0f;
 
-	StartTimer();
+	BENCHMARK_START(
+		Multiple, 
+		for (unsigned int i = 0; i < nCalculation; ++i) {
+			result = Mul(result, factor);
+		}
+	);
 
-	for (unsigned int i = 0; i < nCalculation; ++i) {
-		result = Mul(result, a);
-	}
-
-	pastTime = GetPastSeconds();
-	Log("Past Time : %fs, Result : %f", pastTime, result);	// 这里要输出一次result,否则编译器会自动优化掉修改未使用变量的语句
+	// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
+	Log("Past Time : %fs, Result : %f", BENCHMARK_RESULT(Multiple), result);	
 
 	// ************************* 除法 *************************
-	a = 1.11112f;
+	factor = 1.11112f;
 	result = 12345.0f;
 
-	StartTimer();
+	BENCHMARK_START(
+		Division,
+		for (unsigned int i = 0; i < nCalculation; ++i) {
+			result = Div(result, factor);
+		}
+	);
 
-	for (unsigned int i = 0; i < nCalculation; ++i) {
-		result = Div(result, a);
-	}
-
-	pastTime = GetPastSeconds();
-	Log("Past Time : %fs, Result : %f", pastTime, result);	// 这里要输出一次result,否则编译器会自动优化掉修改未使用变量的语句
+	// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
+	Log("Past Time : %fs, Result : %f", BENCHMARK_RESULT(Division), result);	
 
 	// ************************* 加法 *************************
-	a = 1.11112f;
+	factor = 1.11112f;
 	result = 12345.0f;
 
-	StartTimer();
+	BENCHMARK_START(
+		Addition,
+		for (unsigned int i = 0; i < nCalculation; ++i) {
+			result = Add(result, factor);
+		}
+	);
 
-	for (unsigned int i = 0; i < nCalculation; ++i) {
-		result = Add(result, a);
-	}
-
-	pastTime = GetPastSeconds();
-	Log("Past Time : %fs, Result : %f", pastTime, result);	// 这里要输出一次result,否则编译器会自动优化掉修改未使用变量的语句
+	// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
+	Log("Past Time : %fs, Result : %f", BENCHMARK_RESULT(Addition), result);	
 
 	// ************************* 减法 *************************
-	a = 1.11112f;
+	factor = 1.11112f;
 	result = 12345.0f;
 
-	StartTimer();
+	BENCHMARK_START(
+		Subtraction,
+		for (unsigned int i = 0; i < nCalculation; ++i) {
+			result = Sub(result, factor);
+		}
+	);
 
-	for (unsigned int i = 0; i < nCalculation; ++i) {
-		result = Sub(result, a);
-	}
-
-	pastTime = GetPastSeconds();
-	Log("Past Time : %fs, Result : %f", pastTime, result);	// 这里要输出一次result,否则编译器会自动优化掉修改未使用变量的语句
+	Log("Past Time : %fs, Result : %f", BENCHMARK_RESULT(Subtraction), result);	// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
 
 	system("pause");
 
