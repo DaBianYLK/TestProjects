@@ -12,6 +12,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestUtils", "TestUtils\Test
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IntegerDivideByTwoTest", "IntegerDivideByTwoTest\IntegerDivideByTwoTest.vcxproj", "{5E17CBE0-864D-4981-8C0F-CDFCADFA316A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StringCopyTest", "StringCopyTest\StringCopyTest.vcxproj", "{83E2FFD8-5714-4578-B2E2-01F15E55A876}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -30,6 +32,10 @@ Global
 		{5E17CBE0-864D-4981-8C0F-CDFCADFA316A}.Debug|Win32.Build.0 = Debug|Win32
 		{5E17CBE0-864D-4981-8C0F-CDFCADFA316A}.Release|Win32.ActiveCfg = Release|Win32
 		{5E17CBE0-864D-4981-8C0F-CDFCADFA316A}.Release|Win32.Build.0 = Release|Win32
+		{83E2FFD8-5714-4578-B2E2-01F15E55A876}.Debug|Win32.ActiveCfg = Debug|Win32
+		{83E2FFD8-5714-4578-B2E2-01F15E55A876}.Debug|Win32.Build.0 = Debug|Win32
+		{83E2FFD8-5714-4578-B2E2-01F15E55A876}.Release|Win32.ActiveCfg = Release|Win32
+		{83E2FFD8-5714-4578-B2E2-01F15E55A876}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
