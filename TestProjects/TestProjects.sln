@@ -3,16 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FloatCalculationEfficencyComparation", "FloatCalculationEfficencyComparation\FloatCalculationEfficencyComparation.vcxproj", "{0C205BD7-A7E3-4B30-9761-68CAC3C1C0AE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1. FloatCalculationEfficencyComparation", "FloatCalculationEfficencyComparation\FloatCalculationEfficencyComparation.vcxproj", "{0C205BD7-A7E3-4B30-9761-68CAC3C1C0AE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D77B115E-ADC8-45E2-8C19-1D9B0A50D7DE} = {D77B115E-ADC8-45E2-8C19-1D9B0A50D7DE}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestUtils", "TestUtils\TestUtils.vcxproj", "{D77B115E-ADC8-45E2-8C19-1D9B0A50D7DE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0. TestUtils", "TestUtils\TestUtils.vcxproj", "{D77B115E-ADC8-45E2-8C19-1D9B0A50D7DE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IntegerDivideByTwoTest", "IntegerDivideByTwoTest\IntegerDivideByTwoTest.vcxproj", "{5E17CBE0-864D-4981-8C0F-CDFCADFA316A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2. IntegerDivideByTwo", "IntegerDivideByTwoTest\IntegerDivideByTwoTest.vcxproj", "{5E17CBE0-864D-4981-8C0F-CDFCADFA316A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StringCopyTest", "StringCopyTest\StringCopyTest.vcxproj", "{83E2FFD8-5714-4578-B2E2-01F15E55A876}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3. StringCopy", "StringCopyTest\StringCopyTest.vcxproj", "{83E2FFD8-5714-4578-B2E2-01F15E55A876}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "4. EnumAndIntConversion", "EnumTest\EnumTest.vcxproj", "{81457F75-BECA-409C-9874-B324B45E1D22}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "5. RttiAndPolymorphism", "PolymorphismClassName\PolymorphismClassName.vcxproj", "{F550C425-6D8B-4B02-BC7E-6201750C49B3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "6. FileOperationInWindowsPlatform", "MoveFileInWindowsPlatform\MoveFileInWindowsPlatform.vcxproj", "{844579B8-3CB4-48F8-85A2-C341EDEFC71C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +42,18 @@ Global
 		{83E2FFD8-5714-4578-B2E2-01F15E55A876}.Debug|Win32.Build.0 = Debug|Win32
 		{83E2FFD8-5714-4578-B2E2-01F15E55A876}.Release|Win32.ActiveCfg = Release|Win32
 		{83E2FFD8-5714-4578-B2E2-01F15E55A876}.Release|Win32.Build.0 = Release|Win32
+		{81457F75-BECA-409C-9874-B324B45E1D22}.Debug|Win32.ActiveCfg = Debug|Win32
+		{81457F75-BECA-409C-9874-B324B45E1D22}.Debug|Win32.Build.0 = Debug|Win32
+		{81457F75-BECA-409C-9874-B324B45E1D22}.Release|Win32.ActiveCfg = Release|Win32
+		{81457F75-BECA-409C-9874-B324B45E1D22}.Release|Win32.Build.0 = Release|Win32
+		{F550C425-6D8B-4B02-BC7E-6201750C49B3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F550C425-6D8B-4B02-BC7E-6201750C49B3}.Debug|Win32.Build.0 = Debug|Win32
+		{F550C425-6D8B-4B02-BC7E-6201750C49B3}.Release|Win32.ActiveCfg = Release|Win32
+		{F550C425-6D8B-4B02-BC7E-6201750C49B3}.Release|Win32.Build.0 = Release|Win32
+		{844579B8-3CB4-48F8-85A2-C341EDEFC71C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{844579B8-3CB4-48F8-85A2-C341EDEFC71C}.Debug|Win32.Build.0 = Debug|Win32
+		{844579B8-3CB4-48F8-85A2-C341EDEFC71C}.Release|Win32.ActiveCfg = Release|Win32
+		{844579B8-3CB4-48F8-85A2-C341EDEFC71C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

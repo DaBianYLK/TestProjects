@@ -5,6 +5,8 @@ using namespace std;
 
 // 测试使用memcpy结合const_cast复制string的可行性
 
+// 测试结果：测试通过
+
 void main() {
 	string source = "Test String.";
 	string destination;

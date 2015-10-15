@@ -13,6 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5E17CBE0-864D-4981-8C0F-CDFCADFA316A}</ProjectGuid>
     <RootNamespace>IntegerDivideByTwoTest</RootNamespace>
+    <ProjectName>2. IntegerDivideByTwo</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

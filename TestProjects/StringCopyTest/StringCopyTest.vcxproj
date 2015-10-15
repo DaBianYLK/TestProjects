@@ -13,6 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{83E2FFD8-5714-4578-B2E2-01F15E55A876}</ProjectGuid>
     <RootNamespace>StringCopyTest</RootNamespace>
+    <ProjectName>3. StringCopy</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

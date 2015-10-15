@@ -11,19 +11,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D77B115E-ADC8-45E2-8C19-1D9B0A50D7DE}</ProjectGuid>
-    <RootNamespace>TestUtils</RootNamespace>
-    <ProjectName>0. TestUtils</ProjectName>
+    <ProjectGuid>{844579B8-3CB4-48F8-85A2-C341EDEFC71C}</ProjectGuid>
+    <RootNamespace>MoveFileInWindowsPlatform</RootNamespace>
+    <ProjectName>6. FileOperationInWindowsPlatform</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -65,12 +65,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="DBLog.h" />
-    <ClInclude Include="DBTimer.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="DBLog.cpp" />
-    <ClCompile Include="DBTimer.cpp" />
+    <ClCompile Include="源.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
