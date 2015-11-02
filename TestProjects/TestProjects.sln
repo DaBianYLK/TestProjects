@@ -20,6 +20,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "5. RttiAndPolymorphism", "P
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "6. FileOperationInWindowsPlatform", "MoveFileInWindowsPlatform\MoveFileInWindowsPlatform.vcxproj", "{844579B8-3CB4-48F8-85A2-C341EDEFC71C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "7. StdStringAndSlashZero", "7. _string_AndZero\7. _string_AndZero.vcxproj", "{A1F32DFC-6A17-4542-9C30-7AB30743BE41}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "8. GetSystemProcessList", "8. GetSystemProcessList\8. GetSystemProcessList.vcxproj", "{B77C5FBD-7584-4154-9981-11EB4F1BB4F8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D77B115E-ADC8-45E2-8C19-1D9B0A50D7DE} = {D77B115E-ADC8-45E2-8C19-1D9B0A50D7DE}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -54,6 +61,14 @@ Global
 		{844579B8-3CB4-48F8-85A2-C341EDEFC71C}.Debug|Win32.Build.0 = Debug|Win32
 		{844579B8-3CB4-48F8-85A2-C341EDEFC71C}.Release|Win32.ActiveCfg = Release|Win32
 		{844579B8-3CB4-48F8-85A2-C341EDEFC71C}.Release|Win32.Build.0 = Release|Win32
+		{A1F32DFC-6A17-4542-9C30-7AB30743BE41}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A1F32DFC-6A17-4542-9C30-7AB30743BE41}.Debug|Win32.Build.0 = Debug|Win32
+		{A1F32DFC-6A17-4542-9C30-7AB30743BE41}.Release|Win32.ActiveCfg = Release|Win32
+		{A1F32DFC-6A17-4542-9C30-7AB30743BE41}.Release|Win32.Build.0 = Release|Win32
+		{B77C5FBD-7584-4154-9981-11EB4F1BB4F8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B77C5FBD-7584-4154-9981-11EB4F1BB4F8}.Debug|Win32.Build.0 = Debug|Win32
+		{B77C5FBD-7584-4154-9981-11EB4F1BB4F8}.Release|Win32.ActiveCfg = Release|Win32
+		{B77C5FBD-7584-4154-9981-11EB4F1BB4F8}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

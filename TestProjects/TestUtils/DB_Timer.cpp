@@ -1,4 +1,4 @@
-#include "DBTimer.h"
+#include "DB_Timer.h"
 
 void DaBianYLK::StartTimer() {
 	QueryPerformanceFrequency(&DaBianYLK::nFrequency);	// 获取系统时钟频率（每秒运行次数）

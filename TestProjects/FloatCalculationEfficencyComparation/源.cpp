@@ -1,7 +1,7 @@
 #pragma comment(lib, "TestUtils.lib")
 
-#include "DBLog.h"
-#include "DBTimer.h"
+#include "../TestUtils/DB_Log.h"
+#include "../TestUtils/DB_Timer.h"
 
 #include <iostream>
 

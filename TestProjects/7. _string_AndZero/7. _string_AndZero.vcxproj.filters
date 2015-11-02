@@ -15,18 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DB_Log.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="DB_Timer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="DB_Log.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="DB_Timer.cpp">
+    <ClCompile Include="源.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

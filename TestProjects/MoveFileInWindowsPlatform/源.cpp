@@ -4,7 +4,7 @@
 #pragma comment(lib, "../Release/TestUtils.lib")
 #endif
 
-#include "../TestUtils/DBLog.h"
+#include "../TestUtils/DB_Log.h"
 
 using namespace DaBianYLK;
 
@@ -72,11 +72,11 @@ void MoveFileByCopyAndDeleteFunction() {
 			Log("\tDelete file successfully.");
 		}
 		else {
-			Log("\tErorr : Copy file failed. Please check if the file is already exist.");
+			Log("\tError : Copy file failed. Please check if the file is already exist.");
 		}
 	}
 	else {
-		Log("\tErorr : Source File is not accessible.");
+		Log("\tError : Source File is not accessible.");
 	}
 
 	cout << endl;
@@ -85,7 +85,7 @@ void MoveFileByCopyAndDeleteFunction() {
 void MoveFileByMoveFunction() {
 	Log("Way 2 - Move file by \"MoveFile\" function.");
 
-	// 查找文件是否存在且是否具有读写权限
+	// 查找文件是否存在且是否具有读写权限tError
 	if (AccessFile(moveSource.c_str(), AccessFile_Write | AccessFile_Read) == 0) {
 		// 检查目标路径是否存在，如果不存在则创建
 		if (AccessFile(destinationPath.c_str(), AccessFile_Exist) == -1) {
@@ -104,12 +104,12 @@ void MoveFileByMoveFunction() {
 			Log("\tMove file successfully.");
 		}
 		else {
-			Log("\tErorr : Move file failed. Please check if the file is already exist.");
+			Log("\tError : Move file failed. Please check if the file is already exist.");
 		}
 
 	}
 	else {
-		Log("\tErorr : Source File is not accessible.");
+		Log("\tError : Source File is not accessible.");
 	}
 
 	cout << endl;
@@ -139,7 +139,7 @@ void GetFileListInDirectory(string directoryPath, int indentLevel = 0) {
 	if (hFind == INVALID_HANDLE_VALUE) {
 		// 如果当前文件夹为空
 		string ouputInfo = strIndent;
-		Log(ouputInfo.append("[ Current directory is empty. ]").c_str());
+		Log(ouputInfo.append("Error: Failed to open directory.").c_str());
 
 		return;
 	}
