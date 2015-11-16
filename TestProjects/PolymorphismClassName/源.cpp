@@ -54,6 +54,19 @@ public:
 	float f;
 };
 
+class DerivedClassA : public BaseClassA {
+public:
+	DerivedClassA() {
+		x = 0;
+	}
+
+	~DerivedClassA() {
+
+	}
+
+	int x;
+};
+
 class DerivedClass : public BaseClassA, public BaseClassB {
 public:
 	DerivedClass() {
@@ -100,6 +113,8 @@ void main() {
 	BaseClassB* pPolyBaseClassB = &derivedClassObject;
 	BaseClassB& polyBaseClassBObject = derivedClassObject;
 
+	void* voidPtr = &derivedClassObject;
+
 	cout << "测试说明：" << endl;
 	cout << "基类A：声明了虚函数" << endl;
 	cout << "基类B：没有声明虚函数" << endl;
@@ -114,9 +129,11 @@ void main() {
 
 	// 测试目的：多态时且多继承时，通过typeid能否正确获取指针所指向的实际对象类型
 	// 测试结果：可以
+	// 注：无法通过void指针保存类型信息
 	cout << "多态且多继承时：" << endl;
 	cout << "基类A的指针（指向子类对象）: " << typeid(*pPolyBaseClassA).name() << endl;
 	cout << "基类B的指针（指向子类对象）: " << typeid(*pPolyBaseClassB).name() << endl;
+	cout << "V O I D指针（指向子类对象）: " << typeid(voidPtr).name() << endl;
 	cout << endl;
 
 	// 测试目的：多态时且多继承时，通过typeid能否正确获取引用对象的实际类型
@@ -170,16 +187,17 @@ void main() {
 	cout << "子结构指针（指向子结构对象）: " << typeid(*pDerivedStructObject).name() << endl;
 	cout << endl;
 
-	// 测试多继承时，delete第二个基类的指针是否会造成内存泄露
-	for (int i = 0; i < 10000000; ++i) {
+	// 测试目的：多继承时，delete第二个基类的指针是否会造成内存泄露
+	// 测试结果：不会
+	/*for (int i = 0; i < 10000000; ++i) {
 		pDerivedClass = new DerivedClass();
 		printf("allocated at address %p\n", pDerivedClass);
 
-		pBaseClassA = pDerivedClass;
-		printf("delete at address %p\n", pBaseClassA);
+		pBaseClassB = pDerivedClass;
+		printf("delete at address %p\n", pBaseClassB);
 
-		delete pBaseClassA;
-	}
+		delete pBaseClassB;
+	} */
 
 	system("pause");
 
