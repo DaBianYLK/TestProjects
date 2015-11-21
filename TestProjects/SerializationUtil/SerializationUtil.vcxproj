@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0B787C46-81B7-4E23-81E9-C42375A26A08}</ProjectGuid>
     <RootNamespace>SerializationUtil</RootNamespace>
-    <ProjectName>9. SerializationUtil</ProjectName>
+    <ProjectName>0009. SerializationUtil</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

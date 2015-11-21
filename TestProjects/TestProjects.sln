@@ -3,31 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1. FloatCalculationEfficencyComparation", "FloatCalculationEfficencyComparation\FloatCalculationEfficencyComparation.vcxproj", "{0C205BD7-A7E3-4B30-9761-68CAC3C1C0AE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0001. FloatCalculationEfficencyComparation", "FloatCalculationEfficencyComparation\FloatCalculationEfficencyComparation.vcxproj", "{0C205BD7-A7E3-4B30-9761-68CAC3C1C0AE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D77B115E-ADC8-45E2-8C19-1D9B0A50D7DE} = {D77B115E-ADC8-45E2-8C19-1D9B0A50D7DE}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0. TestUtils", "TestUtils\TestUtils.vcxproj", "{D77B115E-ADC8-45E2-8C19-1D9B0A50D7DE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2. IntegerDivideByTwo", "IntegerDivideByTwoTest\IntegerDivideByTwoTest.vcxproj", "{5E17CBE0-864D-4981-8C0F-CDFCADFA316A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0002. IntegerDivideByTwo", "IntegerDivideByTwoTest\IntegerDivideByTwoTest.vcxproj", "{5E17CBE0-864D-4981-8C0F-CDFCADFA316A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3. StringCopy", "StringCopyTest\StringCopyTest.vcxproj", "{83E2FFD8-5714-4578-B2E2-01F15E55A876}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0003. StringCopy", "StringCopyTest\StringCopyTest.vcxproj", "{83E2FFD8-5714-4578-B2E2-01F15E55A876}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "4. EnumAndIntConversion", "EnumTest\EnumTest.vcxproj", "{81457F75-BECA-409C-9874-B324B45E1D22}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0004. EnumAndIntConversion", "EnumTest\EnumTest.vcxproj", "{81457F75-BECA-409C-9874-B324B45E1D22}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "5. RttiAndPolymorphism", "PolymorphismClassName\PolymorphismClassName.vcxproj", "{F550C425-6D8B-4B02-BC7E-6201750C49B3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0005. RttiAndPolymorphism", "PolymorphismClassName\PolymorphismClassName.vcxproj", "{F550C425-6D8B-4B02-BC7E-6201750C49B3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "6. FileOperationInWindowsPlatform", "MoveFileInWindowsPlatform\MoveFileInWindowsPlatform.vcxproj", "{844579B8-3CB4-48F8-85A2-C341EDEFC71C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0006. FileOperationInWindowsPlatform", "MoveFileInWindowsPlatform\MoveFileInWindowsPlatform.vcxproj", "{844579B8-3CB4-48F8-85A2-C341EDEFC71C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "7. StdStringAndSlashZero", "StdStringAndSlashZero\StdStringAndSlashZero.vcxproj", "{A1F32DFC-6A17-4542-9C30-7AB30743BE41}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0007. StdStringAndSlashZero", "StdStringAndSlashZero\StdStringAndSlashZero.vcxproj", "{A1F32DFC-6A17-4542-9C30-7AB30743BE41}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "8. GetSystemProcessList", "GetSystemProcessList\GetSystemProcessList.vcxproj", "{B77C5FBD-7584-4154-9981-11EB4F1BB4F8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0008. GetSystemProcessList", "GetSystemProcessList\GetSystemProcessList.vcxproj", "{B77C5FBD-7584-4154-9981-11EB4F1BB4F8}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D77B115E-ADC8-45E2-8C19-1D9B0A50D7DE} = {D77B115E-ADC8-45E2-8C19-1D9B0A50D7DE}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "9. SerializationUtil", "SerializationUtil\SerializationUtil.vcxproj", "{0B787C46-81B7-4E23-81E9-C42375A26A08}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0009. SerializationUtil", "SerializationUtil\SerializationUtil.vcxproj", "{0B787C46-81B7-4E23-81E9-C42375A26A08}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0010. BoostSerialization", "BoostSerialization\BoostSerialization.vcxproj", "{0EECF985-0BCC-448B-A1F5-90C2B7EC9B56}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0011. FloatToIntTrick", "FloatToIntTrick\FloatToIntTrick.vcxproj", "{93E49F5D-B569-42E9-B29E-BAF6433786CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +79,14 @@ Global
 		{0B787C46-81B7-4E23-81E9-C42375A26A08}.Debug|Win32.Build.0 = Debug|Win32
 		{0B787C46-81B7-4E23-81E9-C42375A26A08}.Release|Win32.ActiveCfg = Release|Win32
 		{0B787C46-81B7-4E23-81E9-C42375A26A08}.Release|Win32.Build.0 = Release|Win32
+		{0EECF985-0BCC-448B-A1F5-90C2B7EC9B56}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0EECF985-0BCC-448B-A1F5-90C2B7EC9B56}.Debug|Win32.Build.0 = Debug|Win32
+		{0EECF985-0BCC-448B-A1F5-90C2B7EC9B56}.Release|Win32.ActiveCfg = Release|Win32
+		{0EECF985-0BCC-448B-A1F5-90C2B7EC9B56}.Release|Win32.Build.0 = Release|Win32
+		{93E49F5D-B569-42E9-B29E-BAF6433786CE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{93E49F5D-B569-42E9-B29E-BAF6433786CE}.Debug|Win32.Build.0 = Debug|Win32
+		{93E49F5D-B569-42E9-B29E-BAF6433786CE}.Release|Win32.ActiveCfg = Release|Win32
+		{93E49F5D-B569-42E9-B29E-BAF6433786CE}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

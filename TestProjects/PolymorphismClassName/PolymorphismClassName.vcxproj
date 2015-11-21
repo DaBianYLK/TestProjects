@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F550C425-6D8B-4B02-BC7E-6201750C49B3}</ProjectGuid>
     <RootNamespace>PolymorphismClassName</RootNamespace>
-    <ProjectName>5. RttiAndPolymorphism</ProjectName>
+    <ProjectName>0005. RttiAndPolymorphism</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

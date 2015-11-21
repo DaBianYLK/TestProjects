@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{81457F75-BECA-409C-9874-B324B45E1D22}</ProjectGuid>
     <RootNamespace>EnumTest</RootNamespace>
-    <ProjectName>4. EnumAndIntConversion</ProjectName>
+    <ProjectName>0004. EnumAndIntConversion</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

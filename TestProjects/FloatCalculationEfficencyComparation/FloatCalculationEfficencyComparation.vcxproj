@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0C205BD7-A7E3-4B30-9761-68CAC3C1C0AE}</ProjectGuid>
     <RootNamespace>FloatCalculationEfficencyComparation</RootNamespace>
-    <ProjectName>1. FloatCalculationEfficencyComparation</ProjectName>
+    <ProjectName>0001. FloatCalculationEfficencyComparation</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B77C5FBD-7584-4154-9981-11EB4F1BB4F8}</ProjectGuid>
     <RootNamespace>My8GetSystemProcessList</RootNamespace>
-    <ProjectName>8. GetSystemProcessList</ProjectName>
+    <ProjectName>0008. GetSystemProcessList</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
