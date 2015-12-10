@@ -6,7 +6,7 @@
 using namespace std;
 
 void DaBianYLK::Log(const char* format, ...) {
-	char* logMessage = new char[MAX_LOG_LENGTH];
+	char logMessage[MAX_LOG_LENGTH];
 	time_t logTime = time(NULL);
 
 	unsigned int length = strftime(logMessage, MAX_LOG_LENGTH, "%Y-%m-%d %X\t", localtime(&logTime));
@@ -23,5 +23,4 @@ void DaBianYLK::Log(const char* format, ...) {
 	printf(logMessage);
 
 	delete message;
-	delete logMessage;
 }

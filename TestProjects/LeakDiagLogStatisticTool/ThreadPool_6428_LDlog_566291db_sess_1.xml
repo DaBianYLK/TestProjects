@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<logdata>
+<xs:schema id="logdata" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"><xs:element name="SUMMARY_INFO"><xs:complexType><xs:sequence minOccurs="0" maxOccurs="unbounded"><xs:element name="FILENAME" type="xs:string" minOccurs="0" /><xs:element name="PID" type="xs:integer" minOccurs="0" /><xs:element name="OS" minOccurs="0" maxOccurs="unbounded"><xs:complexType><xs:attribute name="ver" type="xs:string" /><xs:attribute name="sp" type="xs:string" /><xs:attribute name="name" type="xs:string" /></xs:complexType></xs:element><xs:element name="LEAKDIAG_SETTINGS" minOccurs="0" maxOccurs="unbounded"><xs:complexType><xs:sequence minOccurs="0" maxOccurs="unbounded"><xs:element name="ALLOCATOR" minOccurs="0" maxOccurs="unbounded"><xs:complexType><xs:attribute name="num" type="xs:integer" /><xs:attribute name="state" type="xs:integer" /></xs:complexType></xs:element></xs:sequence></xs:complexType></xs:element><xs:element name="MEMORY_INFO" minOccurs="0" maxOccurs="unbounded"><xs:complexType><xs:sequence minOccurs="0" maxOccurs="unbounded"><xs:element name="LEAKDIAG" minOccurs="0"  maxOccurs="unbounded"><xs:complexType><xs:attribute name="memusage" type="xs:double" /></xs:complexType></xs:element><xs:element name="GLOBALMEM" minOccurs="0" maxOccurs="unbounded"><xs:complexType><xs:attribute name="TotalPhys" type="xs:double" /><xs:attribute name="AvailPhys" type="xs:double" /><xs:attribute name="TotalPageFile" type="xs:double" /><xs:attribute name="AvailPageFile" type="xs:double" /><xs:attribute name="TotalVirtual" type="xs:double" /><xs:attribute name="AvailVirtual" type="xs:double" /><xs:attribute name="AvailExtendedVirtual" type="xs:double" /></xs:complexType></xs:element><xs:element name="PROCESSMEM" minOccurs="0" maxOccurs="unbounded"><xs:complexType><xs:attribute name="PeakVirtualSize" type="xs:double" /><xs:attribute name="VirtualSize" type="xs:double" /><xs:attribute name="PageFaultCount" type="xs:double" /><xs:attribute name="PeakWorkingSetSize" type="xs:double" /><xs:attribute name="WorkingSetSize" type="xs:double" /><xs:attribute name="QuotaPeakPagedPoolUsage" type="xs:double" /><xs:attribute name="QuotaPagedPoolUsage" type="xs:double" /><xs:attribute name="QuotaPeakNonPagedPoolUsage" type="xs:double" /><xs:attribute name="QuotaNonPagedPoolUsage" type="xs:double" /><xs:attribute name="PagefileUsage" type="xs:double" /><xs:attribute name="PeakPagefileUsage" type="xs:double" /></xs:complexType></xs:element></xs:sequence></xs:complexType></xs:element><xs:element name="MODULES" minOccurs="0" maxOccurs="unbounded"><xs:complexType><xs:sequence><xs:element name="MODULE_INFO" minOccurs="0" maxOccurs="unbounded"><xs:complexType><xs:attribute name="timedate" type="xs:string" /><xs:attribute name="base" type="xs:string" /><xs:attribute name="end" type="xs:string" /></xs:complexType></xs:element></xs:sequence></xs:complexType></xs:element></xs:sequence></xs:complexType></xs:element><xs:element name="LEAKS"><xs:complexType><xs:sequence><xs:element name="STACK" minOccurs="0" maxOccurs="unbounded"><xs:complexType><xs:sequence><xs:element name="STACKID" type="xs:string" minOccurs="0" msdata:Ordinal="1" /><xs:element name="STACKSTATS" minOccurs="0" maxOccurs="unbounded"><xs:complexType><xs:sequence><xs:element name="SIZESTAT" minOccurs="0" maxOccurs="unbounded"><xs:complexType><xs:attribute name="size" type="xs:double" /><xs:attribute name="numallocs" type="xs:double" /></xs:complexType></xs:element><xs:element name="HEAPSTAT" minOccurs="0" maxOccurs="unbounded"><xs:complexType><xs:attribute name="handle" type="xs:string" /><xs:attribute name="numallocs" type="xs:double" /></xs:complexType></xs:element><xs:element name="ASSOCIATED_STACKS" minOccurs="0" maxOccurs="unbounded"><xs:complexType><xs:attribute name="stackid" type="xs:string" /><xs:attribute name="type" type="xs:string" /><xs:attribute name="numallocs" type="xs:double" /><xs:attribute name="totalsize" type="xs:double" /></xs:complexType></xs:element></xs:sequence></xs:complexType></xs:element><xs:element name="FRAME" minOccurs="0" maxOccurs="unbounded"><xs:complexType><xs:attribute name="num" type="xs:integer" /><xs:attribute name="dll" type="xs:string" /><xs:attribute name="function" type="xs:string" /><xs:attribute name="offset" type="xs:string" /><xs:attribute name="filename" type="xs:string" /><xs:attribute name="line" type="xs:string" /><xs:attribute name="addr" type="xs:string" /></xs:complexType></xs:element></xs:sequence><xs:attribute name="numallocs" type="xs:double" /><xs:attribute name="size" type="xs:double" /><xs:attribute name="totalsize" type="xs:double" /></xs:complexType></xs:element></xs:sequence><xs:attribute name="ver" type="xs:string" /></xs:complexType><xs:key name="LEAKSKey1"><xs:selector xpath=".//STACK" /><xs:field xpath="STACKID" /></xs:key></xs:element></xs:schema>
+<LEAKS ver="1.25.28.2201">
+<STACK numallocs="01" size="032" totalsize="032">
+<STACKSTATS>
+<SIZESTAT size="032" numallocs="01"/>
+<HEAPSTAT handle="680000" numallocs="01"/>
+</STACKSTATS>
+<FRAME num="0" dll="ntdll.dll" function ="RtlRunOnceBeginInitialize" offset="0x8E" filename="" line="" addr="0x779B8129" />
+<FRAME num="1" dll="ntdll.dll" function ="RtlInitializeCriticalSection" offset="0x12" filename="" line="" addr="0x779B4262" />
+<FRAME num="2" dll="KERNELBASE.dll" function ="FindCloseChangeNotification" offset="0x69" filename="" line="" addr="0x7623A1F0" />
+<FRAME num="3" dll="KERNELBASE.dll" function ="FindFirstFileExW" offset="0x532" filename="" line="" addr="0x7623AA32" />
+<FRAME num="4" dll="KERNELBASE.dll" function ="FindFirstFileW" offset="0x16" filename="" line="" addr="0x7623AC11" />
+<FRAME num="5" dll="kernel32.dll" function ="GetLongPathNameW" offset="0x1EF" filename="" line="" addr="0x7737A4BC" />
+<FRAME num="6" dll="ADVAPI32.DLL" function ="SaferIdentifyLevel" offset="0x7EF" filename="" line="" addr="0x75882901" />
+<FRAME num="7" dll="ADVAPI32.DLL" function ="SaferIdentifyLevel" offset="0x678" filename="" line="" addr="0x7588278A" />
+<FRAME num="8" dll="ADVAPI32.DLL" function ="LsaQueryInformationPolicy" offset="0x3C6" filename="" line="" addr="0x75881F86" />
+<FRAME num="9" dll="ADVAPI32.DLL" function ="SaferIdentifyLevel" offset="0x14C" filename="" line="" addr="0x7588225E" />
+<FRAME num="10" dll="kernel32.dll" function ="BasepCheckWinSaferRestrictions" offset="0x173" filename="" line="" addr="0x7738543C" />
+<FRAME num="11" dll="kernel32.dll" function ="CreateProcessInternalW" offset="0x888" filename="" line="" addr="0x77384433" />
+<FRAME num="12" dll="kernel32.dll" function ="CreateProcessInternalA" offset="0x123" filename="" line="" addr="0x7738A5B2" />
+<FRAME num="13" dll="kernel32.dll" function ="CreateProcessA" offset="0x2C" filename="" line="" addr="0x7737109E" />
+<FRAME num="14" dll="MSVCR120D.dll" function ="wgetdcwd_dbg" offset="0xCE4" filename="" line="" addr="0xF89D094" />
+<FRAME num="15" dll="MSVCR120D.dll" function ="spawnve" offset="0x690" filename="" line="" addr="0xF89FB50" />
+<FRAME num="16" dll="MSVCR120D.dll" function ="spawnve" offset="0x3F3" filename="" line="" addr="0xF89F8B3" />
+<FRAME num="17" dll="MSVCR120D.dll" function ="system" offset="0x159" filename="" line="" addr="0xF8A0249" />
+<FRAME num="18" dll="0012. ThreadPool.exe" function ="main" offset="0xDB" filename="e:\projects\github\testprojects\testprojects\threadpool\Դ.cp" line="134" addr="0xA1538B" />
+<FRAME num="19" dll="0012. ThreadPool.exe" function ="__tmainCRTStartup" offset="0x199" filename="f:\dd\vctools\crt\crtw32\dllstuff\crtexe.c" line="626" addr="0xA15C89" />
+<FRAME num="20" dll="0012. ThreadPool.exe" function ="mainCRTStartup" offset="0xD" filename="f:\dd\vctools\crt\crtw32\dllstuff\crtexe.c" line="466" addr="0xA15E7D" />
+<FRAME num="21" dll="kernel32.dll" function ="BaseThreadInitThunk" offset="0x12" filename="" line="" addr="0x7737337A" />
+<FRAME num="22" dll="ntdll.dll" function ="RtlInitializeExceptionChain" offset="0x63" filename="" line="" addr="0x779B9882" />
+<FRAME num="23" dll="ntdll.dll" function ="RtlInitializeExceptionChain" offset="0x36" filename="" line="" addr="0x779B9855" />
+<STACKID>002671C8</STACKID>
+</STACK>
+<STACK numallocs="01" size="016" totalsize="016">
+<STACKSTATS>
+<SIZESTAT size="016" numallocs="01"/>
+<HEAPSTAT handle="680000" numallocs="01"/>
+</STACKSTATS>
+<FRAME num="0" dll="kernel32.dll" function ="MapViewOfFileEx" offset="0x7C" filename="" line="" addr="0x77374CB7" />
+<FRAME num="1" dll="kernel32.dll" function ="MapViewOfFileEx" offset="0x3A" filename="" line="" addr="0x77374C75" />
+<FRAME num="2" dll="kernel32.dll" function ="RegOpenKeyExW" offset="0xF6" filename="" line="" addr="0x773723B7" />
+<FRAME num="3" dll="kernel32.dll" function ="RegOpenKeyExW" offset="0x21" filename="" line="" addr="0x773722E2" />
+<FRAME num="4" dll="ADVAPI32.DLL" function ="CloseCodeAuthzLevel" offset="0x1EC3" filename="" line="" addr="0x758856F8" />
+<FRAME num="5" dll="ADVAPI32.DLL" function ="CloseCodeAuthzLevel" offset="0x1E66" filename="" line="" addr="0x7588569B" />
+<FRAME num="6" dll="ADVAPI32.DLL" function ="SaferIdentifyLevel" offset="0x119" filename="" line="" addr="0x7588222B" />
+<FRAME num="7" dll="kernel32.dll" function ="BasepCheckWinSaferRestrictions" offset="0x173" filename="" line="" addr="0x7738543C" />
+<FRAME num="8" dll="kernel32.dll" function ="CreateProcessInternalW" offset="0x888" filename="" line="" addr="0x77384433" />
+<FRAME num="9" dll="kernel32.dll" function ="CreateProcessInternalA" offset="0x123" filename="" line="" addr="0x7738A5B2" />
+<FRAME num="10" dll="kernel32.dll" function ="CreateProcessA" offset="0x2C" filename="" line="" addr="0x7737109E" />
+<FRAME num="11" dll="MSVCR120D.dll" function ="wgetdcwd_dbg" offset="0xCE4" filename="" line="" addr="0xF89D094" />
+<FRAME num="12" dll="MSVCR120D.dll" function ="spawnve" offset="0x690" filename="" line="" addr="0xF89FB50" />
+<FRAME num="13" dll="MSVCR120D.dll" function ="spawnve" offset="0x3F3" filename="" line="" addr="0xF89F8B3" />
+<FRAME num="14" dll="MSVCR120D.dll" function ="system" offset="0x159" filename="" line="" addr="0xF8A0249" />
+<FRAME num="15" dll="0012. ThreadPool.exe" function ="main" offset="0xDB" filename="e:\projects\github\testprojects\testprojects\threadpool\Դ.cp" line="134" addr="0xA1538B" />
+<FRAME num="16" dll="0012. ThreadPool.exe" function ="__tmainCRTStartup" offset="0x199" filename="f:\dd\vctools\crt\crtw32\dllstuff\crtexe.c" line="626" addr="0xA15C89" />
+<FRAME num="17" dll="0012. ThreadPool.exe" function ="mainCRTStartup" offset="0xD" filename="f:\dd\vctools\crt\crtw32\dllstuff\crtexe.c" line="466" addr="0xA15E7D" />
+<FRAME num="18" dll="kernel32.dll" function ="BaseThreadInitThunk" offset="0x12" filename="" line="" addr="0x7737337A" />
+<FRAME num="19" dll="ntdll.dll" function ="RtlInitializeExceptionChain" offset="0x63" filename="" line="" addr="0x779B9882" />
+<FRAME num="20" dll="ntdll.dll" function ="RtlInitializeExceptionChain" offset="0x36" filename="" line="" addr="0x779B9855" />
+<STACKID>002660E8</STACKID>
+</STACK>
+<STACK numallocs="01" size="075" totalsize="075">
+<STACKSTATS>
+<SIZESTAT size="075" numallocs="01"/>
+<HEAPSTAT handle="680000" numallocs="01"/>
+</STACKSTATS>
+<FRAME num="0" dll="MSVCR120D.dll" function ="heapwalk" offset="0x281" filename="" line="" addr="0xF95C6E1" />
+<FRAME num="1" dll="MSVCR120D.dll" function ="free_dbg" offset="0x77F" filename="" line="" addr="0xF96D72F" />
+<FRAME num="2" dll="MSVCR120D.dll" function ="msize_dbg" offset="0x28D" filename="" line="" addr="0xF96DBCD" />
+<FRAME num="3" dll="MSVCR120D.dll" function ="calloc_dbg" offset="0xB2" filename="" line="" addr="0xF96CE22" />
+<FRAME num="4" dll="MSVCR120D.dll" function ="calloc_dbg" offset="0x2A" filename="" line="" addr="0xF96CD9A" />
+<FRAME num="5" dll="MSVCR120D.dll" function ="wgetdcwd_dbg" offset="0x3BF" filename="" line="" addr="0xF89C76F" />
+<FRAME num="6" dll="MSVCR120D.dll" function ="spawnve" offset="0x66E" filename="" line="" addr="0xF89FB2E" />
+<FRAME num="7" dll="MSVCR120D.dll" function ="spawnve" offset="0x3F3" filename="" line="" addr="0xF89F8B3" />
+<FRAME num="8" dll="MSVCR120D.dll" function ="system" offset="0x159" filename="" line="" addr="0xF8A0249" />
+<FRAME num="9" dll="0012. ThreadPool.exe" function ="main" offset="0xDB" filename="e:\projects\github\testprojects\testprojects\threadpool\Դ.cp" line="134" addr="0xA1538B" />
+<FRAME num="10" dll="0012. ThreadPool.exe" function ="__tmainCRTStartup" offset="0x199" filename="f:\dd\vctools\crt\crtw32\dllstuff\crtexe.c" line="626" addr="0xA15C89" />
+<FRAME num="11" dll="0012. ThreadPool.exe" function ="mainCRTStartup" offset="0xD" filename="f:\dd\vctools\crt\crtw32\dllstuff\crtexe.c" line="466" addr="0xA15E7D" />
+<FRAME num="12" dll="kernel32.dll" function ="BaseThreadInitThunk" offset="0x12" filename="" line="" addr="0x7737337A" />
+<FRAME num="13" dll="ntdll.dll" function ="RtlInitializeExceptionChain" offset="0x63" filename="" line="" addr="0x779B9882" />
+<FRAME num="14" dll="ntdll.dll" function ="RtlInitializeExceptionChain" offset="0x36" filename="" line="" addr="0x779B9855" />
+<STACKID>00264628</STACKID>
+</STACK>
+<STACK numallocs="01" size="064" totalsize="064">
+<STACKSTATS>
+<SIZESTAT size="064" numallocs="01"/>
+<HEAPSTAT handle="680000" numallocs="01"/>
+</STACKSTATS>
+<FRAME num="0" dll="MSVCR120D.dll" function ="heapwalk" offset="0x281" filename="" line="" addr="0xF95C6E1" />
+<FRAME num="1" dll="MSVCR120D.dll" function ="free_dbg" offset="0x77F" filename="" line="" addr="0xF96D72F" />
+<FRAME num="2" dll="MSVCR120D.dll" function ="msize_dbg" offset="0x28D" filename="" line="" addr="0xF96DBCD" />
+<FRAME num="3" dll="MSVCR120D.dll" function ="calloc_dbg" offset="0xB2" filename="" line="" addr="0xF96CE22" />
+<FRAME num="4" dll="MSVCR120D.dll" function ="calloc_dbg" offset="0x2A" filename="" line="" addr="0xF96CD9A" />
+<FRAME num="5" dll="MSVCR120D.dll" function ="dupenv_s_dbg" offset="0x205" filename="" line="" addr="0xF972845" />
+<FRAME num="6" dll="MSVCR120D.dll" function ="dupenv_s_dbg" offset="0x65" filename="" line="" addr="0xF9726A5" />
+<FRAME num="7" dll="MSVCR120D.dll" function ="system" offset="0x4E" filename="" line="" addr="0xF8A013E" />
+<FRAME num="8" dll="0012. ThreadPool.exe" function ="main" offset="0xDB" filename="e:\projects\github\testprojects\testprojects\threadpool\Դ.cp" line="134" addr="0xA1538B" />
+<FRAME num="9" dll="0012. ThreadPool.exe" function ="__tmainCRTStartup" offset="0x199" filename="f:\dd\vctools\crt\crtw32\dllstuff\crtexe.c" line="626" addr="0xA15C89" />
+<FRAME num="10" dll="0012. ThreadPool.exe" function ="mainCRTStartup" offset="0xD" filename="f:\dd\vctools\crt\crtw32\dllstuff\crtexe.c" line="466" addr="0xA15E7D" />
+<FRAME num="11" dll="kernel32.dll" function ="BaseThreadInitThunk" offset="0x12" filename="" line="" addr="0x7737337A" />
+<FRAME num="12" dll="ntdll.dll" function ="RtlInitializeExceptionChain" offset="0x63" filename="" line="" addr="0x779B9882" />
+<FRAME num="13" dll="ntdll.dll" function ="RtlInitializeExceptionChain" offset="0x36" filename="" line="" addr="0x779B9855" />
+<STACKID>00264388</STACKID>
+</STACK>
+<STACK numallocs="01" size="04132" totalsize="04132">
+<STACKSTATS>
+<SIZESTAT size="04132" numallocs="01"/>
+<HEAPSTAT handle="680000" numallocs="01"/>
+</STACKSTATS>
+<FRAME num="0" dll="MSVCR120D.dll" function ="heapwalk" offset="0x281" filename="" line="" addr="0xF95C6E1" />
+<FRAME num="1" dll="MSVCR120D.dll" function ="free_dbg" offset="0x77F" filename="" line="" addr="0xF96D72F" />
+<FRAME num="2" dll="MSVCR120D.dll" function ="msize_dbg" offset="0x28D" filename="" line="" addr="0xF96DBCD" />
+<FRAME num="3" dll="MSVCR120D.dll" function ="msize_dbg" offset="0x23A" filename="" line="" addr="0xF96DB7A" />
+<FRAME num="4" dll="MSVCR120D.dll" function ="malloc_dbg" offset="0x1F" filename="" line="" addr="0xF96D90F" />
+<FRAME num="5" dll="MSVCR120D.dll" function ="flsbuf" offset="0x105A" filename="" line="" addr="0xF8A79CA" />
+<FRAME num="6" dll="MSVCR120D.dll" function ="printf" offset="0xEC" filename="" line="" addr="0xF8ACF5C" />
+<FRAME num="7" dll="0012. ThreadPool.exe" function ="main" offset="0x82" filename="e:\projects\github\testprojects\testprojects\threadpool\Դ.cp" line="130" addr="0xA15332" />
+<FRAME num="8" dll="0012. ThreadPool.exe" function ="__tmainCRTStartup" offset="0x199" filename="f:\dd\vctools\crt\crtw32\dllstuff\crtexe.c" line="626" addr="0xA15C89" />
+<FRAME num="9" dll="0012. ThreadPool.exe" function ="mainCRTStartup" offset="0xD" filename="f:\dd\vctools\crt\crtw32\dllstuff\crtexe.c" line="466" addr="0xA15E7D" />
+<FRAME num="10" dll="kernel32.dll" function ="BaseThreadInitThunk" offset="0x12" filename="" line="" addr="0x7737337A" />
+<FRAME num="11" dll="ntdll.dll" function ="RtlInitializeExceptionChain" offset="0x63" filename="" line="" addr="0x779B9882" />
+<FRAME num="12" dll="ntdll.dll" function ="RtlInitializeExceptionChain" offset="0x36" filename="" line="" addr="0x779B9855" />
+<STACKID>002640E8</STACKID>
+</STACK>
+</LEAKS>
+<SUMMARY_INFO>
+<FILENAME>E:\Projects\GitHub\TestProjects\TestProjects\Debug\0012. ThreadPool.exe</FILENAME>
+<PID>6428</PID>
+<OS ver="6.1.7601" sp="1.0" name="Service Pack 1" />
+<LEAKDIAG_SETTINGS>
+<ALLOCATOR num="2" state="1" />
+</LEAKDIAG_SETTINGS>
+<MEMORY_INFO>
+<LEAKDIAG memusage="1464800" />
+<GLOBALMEM MemoryLoad="52" TotalPhys="4245192704" AvailPhys="1" TotalPageFile="4014440448" AvailPageFile="0" TotalVirtual="4193538048" AvailVirtual="3" AvailExtendedVirtual="3554156544"/>
+<PROCESSMEM PeakVirtualSize="38039552" VirtualSize="38039552" PageFaultCount="4317" PeakWorkingSetSize="13455360" WorkingSetSize="13455360" QuotaPeakPagedPoolUsage="46384" QuotaPagedPoolUsage="37800" QuotaPeakNonPagedPoolUsage="10200" PagefileUsage="12308480" PeakPagefileUsage="12308480" />
+</MEMORY_INFO>
+<MODULES>
+<MODULE_INFO name="0012. ThreadPool.exe" timestamp="0x566291D0" base="0xA00000" end="0xA23000" />
+<MODULE_INFO name="symsrv.dll" timestamp="0x3C687244" base="0x1D00000" end="0x1D0D000" />
+<MODULE_INFO name="dbghelp.dll" timestamp="0x3CF80D47" base="0x2800000" end="0x28B5000" />
+<MODULE_INFO name="MSVCR120D.dll" timestamp="0x524F7CE5" base="0xF830000" end="0xF9EF000" />
+<MODULE_INFO name="MSVCP120D.dll" timestamp="0x524F7CE9" base="0xFC60000" end="0xFD29000" />
+<MODULE_INFO name="inject.dll" timestamp="0x3D650E80" base="0x67A10000" end="0x67A36000" />
+<MODULE_INFO name="psapi.dll" timestamp="0x38439A0A" base="0x690A0000" end="0x690AB000" />
+<MODULE_INFO name="apphelp.dll" timestamp="0x56325A30" base="0x73A20000" end="0x73A6C000" />
+<MODULE_INFO name="VERSION.dll" timestamp="0x4A5BDB2B" base="0x75200000" end="0x75209000" />
+<MODULE_INFO name="CRYPTBASE.dll" timestamp="0x56257C5B" base="0x752D0000" end="0x752DC000" />
+<MODULE_INFO name="SspiCli.dll" timestamp="0x56258E62" base="0x752E0000" end="0x75340000" />
+<MODULE_INFO name="ADVAPI32.DLL" timestamp="0x55AFD611" base="0x75860000" end="0x75901000" />
+<MODULE_INFO name="msvcrt.dll" timestamp="0x4EEAF722" base="0x75CE0000" end="0x75D8C000" />
+<MODULE_INFO name="RPCRT4.dll" timestamp="0x56258E62" base="0x760C0000" end="0x761B0000" />
+<MODULE_INFO name="sechost.dll" timestamp="0x556362E4" base="0x76200000" end="0x76219000" />
+<MODULE_INFO name="KERNELBASE.dll" timestamp="0x56258F05" base="0x76220000" end="0x76267000" />
+<MODULE_INFO name="kernel32.dll" timestamp="0x56258F04" base="0x77360000" end="0x77470000" />
+<MODULE_INFO name="ntdll.dll" timestamp="0x56258E62" base="0x77980000" end="0x77B00000" />
+</MODULES>
+</SUMMARY_INFO>
+</logdata>

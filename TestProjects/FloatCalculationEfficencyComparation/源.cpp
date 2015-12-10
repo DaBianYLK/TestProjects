@@ -35,79 +35,73 @@ using namespace DaBianYLK;
 *		2. 多次除以同一个变量时，先转化为倒数，再使用乘法
  */
 
-inline float Mul(float a, float b) {
-	return a * b;
+const unsigned int nCalculation = 99999999;
+float factor = 1.11112f;
+float result = 12345.0f;
+
+int nfactor = 2;
+int nResult = 1;
+
+inline void IntMul() {
+	for (unsigned int i = 0; i < nCalculation; ++i) {
+		nResult = nResult * nfactor;
+	}
 }
 
-inline float Div(float a, float b) {
-	return a / b;
+inline void Mul() {
+	for (unsigned int i = 0; i < nCalculation; ++i) {
+		result = result * factor;
+	}
 }
 
-inline float Add(float a, float b) {
-	return a + b;
+inline void Div() {
+	for (unsigned int i = 0; i < nCalculation; ++i) {
+		result = result / factor;
+	}
 }
 
-inline float Sub(float a, float b) {
-	return a - b;
+inline void Add() {
+	for (unsigned int i = 0; i < nCalculation; ++i) {
+		result = result + factor;
+	}
+}
+
+inline void Sub() {
+	for (unsigned int i = 0; i < nCalculation; ++i) {
+		result = result - factor;
+	}
 }
 
 int main(void) {
-	const unsigned int nCalculation = 99999999;
 
 	// ************************* 乘法 *************************
-	float factor = 1.11112f;
-	float result = 12345.0f;
-
-	BENCHMARK_START(
-		Multiple, 
-		for (unsigned int i = 0; i < nCalculation; ++i) {
-			result = Mul(result, factor);
-		}
-	);
-
-	// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
-	Log("Past Time : %fs, Result : %f", BENCHMARK_RESULT(Multiple), result);	
+	BENCHMARK(Multiple, Mul());
+	Log("Result : %f", result);			// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
 
 	// ************************* 除法 *************************
 	factor = 1.11112f;
 	result = 12345.0f;
 
-	BENCHMARK_START(
-		Division,
-		for (unsigned int i = 0; i < nCalculation; ++i) {
-			result = Div(result, factor);
-		}
-	);
+	BENCHMARK(Division, Div());
+	Log("Result : %f", result);			// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
 
-	// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
-	Log("Past Time : %fs, Result : %f", BENCHMARK_RESULT(Division), result);	
 
 	// ************************* 加法 *************************
 	factor = 1.11112f;
 	result = 12345.0f;
 
-	BENCHMARK_START(
-		Addition,
-		for (unsigned int i = 0; i < nCalculation; ++i) {
-			result = Add(result, factor);
-		}
-	);
-
-	// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
-	Log("Past Time : %fs, Result : %f", BENCHMARK_RESULT(Addition), result);	
+	BENCHMARK(Addition, Add());
+	Log("Result : %f", result);			// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
 
 	// ************************* 减法 *************************
 	factor = 1.11112f;
 	result = 12345.0f;
 
-	BENCHMARK_START(
-		Subtraction,
-		for (unsigned int i = 0; i < nCalculation; ++i) {
-			result = Sub(result, factor);
-		}
-	);
+	BENCHMARK(Subtraction, Sub());
+	Log("Result : %f", result);			// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
 
-	Log("Past Time : %fs, Result : %f", BENCHMARK_RESULT(Subtraction), result);	// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
+	BENCHMARK(IntMul, IntMul());
+	Log("Result : %d", nResult);			// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
 
 	system("pause");
 

@@ -25,9 +25,9 @@ inline void SetupFloatTable() {
 
 inline void DirectCast() {
 	for (unsigned int i = 0; i < nCalculation; ++i) {
-		int tempI = fDenominator * fNumber;
+		int iTemp = fDenominator * fNumber;
 
-		fNumber = fTable[tempI];
+		fNumber = fTable[iTemp];
 	}
 }
 
@@ -59,9 +59,9 @@ inline void NormalAsmCast() {
 
 inline void StaticCast() {
 	for (unsigned int i = 0; i < nCalculation; ++i) {
-		int tempI = static_cast<int>(fDenominator * fNumber);
+		int iTemp = static_cast<int>(fDenominator * fNumber);
 
-		fNumber = fTable[tempI];
+		fNumber = fTable[iTemp];
 	}
 }
 
