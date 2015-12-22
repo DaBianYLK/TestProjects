@@ -40,13 +40,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>..\ThirdPartyLibraries\tinyxml;..\TestUtils;$(IncludePath)</IncludePath>
+    <IncludePath>..\ThirdPartyLibraries\tinyxml;..\TestUtils;..\ThirdPartyLibraries\xerces-c-3.1.2\src;$(IncludePath)</IncludePath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
-    <LibraryPath>..\ThirdPartyLibraries\tinyxml\libs;..\$(Configuration);$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\ThirdPartyLibraries\tinyxml\libs;..\$(Configuration);..\ThirdPartyLibraries\xerces-c-3.1.2\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>..\ThirdPartyLibraries\tinyxml;..\TestUtils;$(IncludePath)</IncludePath>
-    <LibraryPath>..\ThirdPartyLibraries\tinyxml\libs;..\$(Configuration);$(LibraryPath)</LibraryPath>
+    <IncludePath>..\ThirdPartyLibraries\tinyxml;..\ThirdPartyLibraries\xerces-c-3.1.2\src;..\TestUtils;$(IncludePath)</IncludePath>
+    <LibraryPath>..\ThirdPartyLibraries\tinyxml\libs;..\ThirdPartyLibraries\xerces-c-3.1.2\libs;..\$(Configuration);$(LibraryPath)</LibraryPath>
+    <LinkIncremental>
+    </LinkIncremental>
+    <LibraryWPath>$(WindowsSDK_MetadataPath);</LibraryWPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -56,8 +59,8 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>tinyxmld.lib;TestUtilsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <IgnoreSpecificDefaultLibraries>LIBCMTD;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalDependencies>tinyxmld.lib;TestUtilsd.lib;xerces-c_3d.lib;xerces-c_static_3d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>libcmtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -67,13 +70,19 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <StringPooling>
+      </StringPooling>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>tinyxml.lib;TestUtils.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>tinyxml.lib;TestUtils.lib;xerces-c_3.lib;xerces-c_static_3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

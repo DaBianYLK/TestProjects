@@ -15,36 +15,58 @@ int main(int argc, char **argv) {
 		Log("Error: No file input.");
 	}
 	else {
-		Log("Input file path : \"%s\".", argv[1]);
+		int iFileNum = argc - 1;
+		char* logPath = NULL;
 
-		if (!LeakDiagLogStatisticTool::GetInstance().LoadLog(argv[1])) {
-			Log("Error: Failed to load log file.");
+		for (int i = 0; i < iFileNum; ++i) {
+			logPath = argv[i + 1];
+
+			Log("Input file %d path : \"%s\".", i, logPath);
+
+			if (LeakDiagLogStatisticTool::GetInstance().LoadLog(logPath)) {
+				string strResultFileName = logPath;
+				unsigned uExtensionPos = strResultFileName.find_last_of('.');
+				if (uExtensionPos < strResultFileName.size()) {
+					strResultFileName.assign(strResultFileName, 0, uExtensionPos);
+				}
+				strResultFileName.append("_Result.result");
+
+				Log("Result file %d path : \"%s\".", i, strResultFileName.c_str());
+
+				LeakDiagLogStatisticTool::GetInstance().SaveResult(strResultFileName.c_str());
+			}
+			else {
+				Log("Error: Failed to load log file %d - \"%s\".", i, logPath);
+			}
 		}
-		else if (!LeakDiagLogStatisticTool::GetInstance().ParseLog()) {
-			Log("Error: Failed to parse log file.");
+
+		string strSummaryFileName = logPath;
+		unsigned uExtensionPos = strSummaryFileName.find_last_of('.');
+		if (uExtensionPos < strSummaryFileName.size()) {
+			strSummaryFileName.assign(strSummaryFileName, 0, uExtensionPos);
 		}
-		else if (argc == 2) {
-			char cBuffer[64];
-			time_t logTime = time(NULL);
+		strSummaryFileName.append("_Summary.csv");
 
-			strftime(cBuffer, 64, " %Y-%m-%d %H-%M-%S", localtime(&logTime));
+		Log("Summary file path : \"%s\".", strSummaryFileName.c_str());
 
-			string strFileName = "StatiscResult";
-			strFileName.append(cBuffer);
-			strFileName.append(".txt");
-
-			Log("Output file path : \"%s\".", strFileName.c_str());
-
-			LeakDiagLogStatisticTool::GetInstance().SaveResult(strFileName.c_str());
-		}
-		else if (argc > 2) {
-			Log("Output file path : \"%s\".", argv[2]);
-
-			LeakDiagLogStatisticTool::GetInstance().SaveResult(argv[2]);
-		}
+		LeakDiagLogStatisticTool::GetInstance().SaveSummary(strSummaryFileName.c_str());
 	}
 
 	system("pause");
 
 	return 0;
 }
+
+//
+//char cBuffer[64];
+//time_t logTime = time(NULL);
+//
+//strftime(cBuffer, 64, " %Y-%m-%d %H-%M-%S", localtime(&logTime));
+//
+//string strFileName = "StatiscResult";
+//strFileName.append(cBuffer);
+//strFileName.append(".txt");
+//
+//Log("Output file path : \"%s\".", strFileName.c_str());
+//
+//LeakDiagLogStatisticTool::GetInstance().SaveResult(strFileName.c_str());
