@@ -42,6 +42,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0014. LeakDiagLogStatisticT
 		{D77B115E-ADC8-45E2-8C19-1D9B0A50D7DE} = {D77B115E-ADC8-45E2-8C19-1D9B0A50D7DE}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{959AA3F1-E52F-4E99-81EA-88F20C8346F0}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0015. DirectXFunctionProfile", "DirectXFunctionProfile\DirectXFunctionProfile.vcxproj", "{2F487E0C-E5EC-4AE3-9045-EEB64C5921EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -202,6 +209,16 @@ Global
 		{EA23257B-EA88-42D3-8382-8D737FBC9F8E}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{EA23257B-EA88-42D3-8382-8D737FBC9F8E}.Release|Win32.ActiveCfg = Release|Win32
 		{EA23257B-EA88-42D3-8382-8D737FBC9F8E}.Release|Win32.Build.0 = Release|Win32
+		{2F487E0C-E5EC-4AE3-9045-EEB64C5921EE}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{2F487E0C-E5EC-4AE3-9045-EEB64C5921EE}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{2F487E0C-E5EC-4AE3-9045-EEB64C5921EE}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{2F487E0C-E5EC-4AE3-9045-EEB64C5921EE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2F487E0C-E5EC-4AE3-9045-EEB64C5921EE}.Debug|Win32.Build.0 = Debug|Win32
+		{2F487E0C-E5EC-4AE3-9045-EEB64C5921EE}.Release|Any CPU.ActiveCfg = Release|Win32
+		{2F487E0C-E5EC-4AE3-9045-EEB64C5921EE}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{2F487E0C-E5EC-4AE3-9045-EEB64C5921EE}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{2F487E0C-E5EC-4AE3-9045-EEB64C5921EE}.Release|Win32.ActiveCfg = Release|Win32
+		{2F487E0C-E5EC-4AE3-9045-EEB64C5921EE}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
