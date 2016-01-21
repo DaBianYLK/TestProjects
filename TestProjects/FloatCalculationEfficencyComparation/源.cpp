@@ -1,4 +1,8 @@
+#ifdef _DEBUG
+#pragma comment(lib, "TestUtilsd.lib")
+#else
 #pragma comment(lib, "TestUtils.lib")
+#endif
 
 #include "../TestUtils/DB_Log.h"
 #include "../TestUtils/DB_Timer.h"
