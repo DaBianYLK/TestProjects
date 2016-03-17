@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{505987E2-BE4C-4D7E-ADB7-56BF6DD31CAA}</ProjectGuid>
-    <RootNamespace>TemplateAndReference</RootNamespace>
-    <ProjectName>0018. TemplateAndReference</ProjectName>
+    <ProjectGuid>{DC458DFA-8847-46F3-9714-F7774B3D2EDB}</ProjectGuid>
+    <RootNamespace>Int64AdditionAndBitOperation</RootNamespace>
+    <ProjectName>0019. Int64AdditionAndBitOperation</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -40,7 +40,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>..\$(Configuration);$(LibraryPath)</LibraryPath>
+    <IncludePath>..\TestUtils;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>..\$(Configuration);$(LibraryPath)</LibraryPath>
+    <IncludePath>..\TestUtils;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -67,7 +72,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="TemplateAndReferenceMain.cpp" />
+    <ClCompile Include="源.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
