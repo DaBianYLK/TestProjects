@@ -170,6 +170,28 @@ IDirect3DDevice9* InitDevice(IDirect3D9* pD3D9, HWND hWnd)
 		}
 	}
 
+	/*IDirect3DSwapChain9* pSwapChain1;
+	IDirect3DSwapChain9* pSwapChain2;
+	hResult = pDevice->GetSwapChain(0, &pSwapChain1);
+	if (FAILED(hResult))
+	{
+		cout << "Get swap chain failed." << endl;
+	}
+
+	IDirect3DSurface9* pSurface;
+	presentParam.hDeviceWindow = hWnd;
+	hResult = pDevice->CreateAdditionalSwapChain(&presentParam, &pSwapChain2);
+	if (FAILED(hResult))
+	{
+		cout << "Create swap chain failed." << endl;
+	}
+	pSwapChain2->GetBackBuffer(0, D3DBACKBUFFER_TYPE_MONO, &pSurface);
+	pDevice->SetRenderTarget(0, pSurface);
+
+	pSwapChain1->Release();
+	pSwapChain1->GetBackBuffer(0, D3DBACKBUFFER_TYPE_MONO, &pSurface);
+	pDevice->SetRenderTarget(0, pSurface);*/
+
 	return pDevice;
 }
 
@@ -490,6 +512,20 @@ int main()
 			g_pDevice->BeginScene();
 
 			hResult = g_pDevice->Clear(0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_ARGB(255, 0, 0, 0), 1.0f, 0);
+
+			/*float pData[16] =
+			{
+				0.0f, 1.0f, 0.0f, 0.0f,
+				0.0f, 1.0f, 0.0f, 0.0f,
+				1.0f, 1.0f, 0.0f, 0.0f,
+				1.0f, 0.0f, 0.0f, 0.0f
+			};
+			D3DXHANDLE hPos = g_pVertexConstantTable->GetConstantByName(nullptr, "position");
+			hResult = g_pVertexConstantTable->SetFloatArray(g_pDevice, hPos, pData, 16);
+			if (FAILED(hResult))
+			{
+				cout << "Can't use handle as constant buffer." << endl;
+			}*/
 
 			hResult = g_pDevice->DrawIndexedPrimitive(
 				D3DPT_TRIANGLELIST,		// Í¼ÔªÀàÐÍ

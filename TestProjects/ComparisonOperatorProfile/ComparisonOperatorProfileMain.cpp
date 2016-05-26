@@ -12,34 +12,7 @@
 using namespace std;
 using namespace DaBianYLK;
 
-/*
-* 测试目的：判断浮点数四则运算之间的效率差异
-*
-* 测试方法：运行四则运算各1亿次，比较消耗的时间
-*
-* Debug模式下Profile结果——每种运算函数的CPU占用百分比：
-*		乘法 6.29%
-*		除法 42.86%
-*		加法 5.98%
-*		减法 6.32%
-*
-* Release模式下计时结果：
-*		乘法 0.147805s
-*		除法 4.411531s
-*		加法 0.088647s
-*		减法 0.087332s
-*
-* 结果分析：
-*		1. 浮点数乘法、加减法效率相近，除法效率最低
-*		2. 在Release模式下，浮点数乘法效率与除法的时间消耗比约为 1 ： 30
-*
-* 结论：
-*		在希望效率最大化的情况下，需要尽量避免浮点数除法运算：
-*		1. 精度要求不高时可以改为整数除法运算或移位运算
-*		2. 多次除以同一个变量时，先转化为倒数，再使用乘法
-*/
-
-const unsigned g_uCalculationCount = 400000000;
+const unsigned g_uCalculationCount = 40000000;
 
 const unsigned g_uMid = g_uCalculationCount / 2;
 
@@ -239,6 +212,78 @@ void UnEqualOperatorFalse()
 	}
 }
 
+unsigned long long* g_u64ArrayA = new unsigned long long[g_uCalculationCount];
+unsigned long long* g_u64ArrayB = new unsigned long long[g_uCalculationCount];
+unsigned int* g_u32ArrayA = new unsigned int[g_uCalculationCount];
+unsigned int* g_u32ArrayB = new unsigned int[g_uCalculationCount];
+unsigned short* g_u16ArrayA = new unsigned short[g_uCalculationCount];
+unsigned short* g_u16ArrayB = new unsigned short[g_uCalculationCount];
+unsigned char* g_u8ArrayA = new unsigned char[g_uCalculationCount];
+unsigned char* g_u8ArrayB = new unsigned char[g_uCalculationCount];
+
+unsigned int uABiggerCount = 0;
+unsigned int uBBiggerCount = 0;
+
+void Unsigned64Comparision()
+{
+	for (unsigned i = 0; i < g_uCalculationCount; ++i)
+	{
+		if (g_u64ArrayA[i] > g_u64ArrayB[i])
+		{
+			++uABiggerCount;
+		}
+		else
+		{
+			//++uBBiggerCount;
+		}
+	}
+}
+
+void Unsigned32Comparision()
+{
+	for (unsigned i = 0; i < g_uCalculationCount; ++i)
+	{
+		if (g_u32ArrayA[i] > g_u32ArrayB[i])
+		{
+			++uABiggerCount;
+		}
+		else
+		{
+			//++uBBiggerCount;
+		}
+	}
+}
+
+void Unsigned16Comparision()
+{
+	for (unsigned i = 0; i < g_uCalculationCount; ++i)
+	{
+		if (g_u16ArrayA[i] > g_u16ArrayB[i])
+		{
+			++uABiggerCount;
+		}
+		else
+		{
+			//++uBBiggerCount;
+		}
+	}
+}
+
+void Unsigned8Comparision()
+{
+	for (unsigned i = 0; i < g_uCalculationCount; ++i)
+	{
+		if (g_u8ArrayA[i] > g_u8ArrayB[i])
+		{
+			++uABiggerCount;
+		}
+		else
+		{
+			//++uBBiggerCount;
+		}
+	}
+}
+
 unsigned main(void) 
 {
 	system("pause");
@@ -330,6 +375,34 @@ unsigned main(void)
 	BENCHMARK(UnEqualOperatorFalse, UnEqualOperatorFalse());
 	// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
 	Log("Result : %u, %u", g_uA, g_uB);
+
+	uABiggerCount = 0;
+	uBBiggerCount = 0;
+
+	BENCHMARK(Unsigned64Comparision, Unsigned64Comparision());
+	// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
+	Log("Result : %u, %u", uABiggerCount, uBBiggerCount);
+
+	uABiggerCount = 0;
+	uBBiggerCount = 0;
+
+	BENCHMARK(Unsigned32Comparision, Unsigned32Comparision());
+	// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
+	Log("Result : %u, %u", uABiggerCount, uBBiggerCount);
+
+	uABiggerCount = 0;
+	uBBiggerCount = 0;
+
+	BENCHMARK(Unsigned16Comparision, Unsigned16Comparision());
+	// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
+	Log("Result : %u, %u", uABiggerCount, uBBiggerCount);
+
+	uABiggerCount = 0;
+	uBBiggerCount = 0;
+
+	BENCHMARK(Unsigned8Comparision, Unsigned8Comparision());
+	// 这里要输出一次result,否则编译器的优化会删除执行运算的代码
+	Log("Result : %u, %u", uABiggerCount, uBBiggerCount);
 
 	system("pause");
 

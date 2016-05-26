@@ -15,16 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="D3D9Sample.cpp">
+    <ClCompile Include="DeleteAndDeleteArray.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="Pixel.hlsl">
-      <Filter>资源文件</Filter>
-    </FxCompile>
-    <FxCompile Include="Vertex.hlsl">
-      <Filter>资源文件</Filter>
-    </FxCompile>
   </ItemGroup>
 </Project>
