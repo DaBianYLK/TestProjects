@@ -1,5 +1,6 @@
 #include <d3dx9.h>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -16,6 +17,8 @@ IDirect3DVertexDeclaration9*	g_pVertexDeclaration;
 
 IDirect3DVertexShader9*			g_pVertexShader;
 ID3DXConstantTable*				g_pVertexConstantTable;
+IDirect3DVertexShader9*			g_pVSTest;
+ID3DXConstantTable*				g_pVSTestConstantTable;
 IDirect3DPixelShader9*			g_pPixelShader;
 ID3DXConstantTable*				g_pPixelConstantTable;
 
@@ -39,6 +42,7 @@ const unsigned int			g_uIndexBufferSize = 4 * 1024;
 const char*					g_EffectShaderPath = "Shader.bin";
 const char*					g_VertexShaderPath = "Vertex.hlsl";
 const char*					g_PixelShaderPath = "Pixel.hlsl";
+const char*					g_VSConstantBufferTest = "VertexConstantBufferTest.hlsl";
 
 struct PointLight
 {
@@ -60,13 +64,21 @@ struct Material
 };
 
 
-struct VertexData
+struct VertexDataP3fU2f
 {
 	float position[3];
+	float texCoord[2];
+};
+
+struct VertexDataP4fU2f
+{
+	float position[4];
+	float texCoord[2];
 };
 
 const D3DVERTEXELEMENT9		g_VertexElements[] = {
 	{ 0,  0, D3DDECLTYPE_FLOAT3, D3DDECLMETHOD_DEFAULT, D3DDECLUSAGE_POSITION, 0 },
+	{ 0, 12, D3DDECLTYPE_FLOAT2, D3DDECLMETHOD_DEFAULT, D3DDECLUSAGE_TEXCOORD, 0 },
 	D3DDECL_END()
 };
 
@@ -87,6 +99,7 @@ LPD3DXEFFECT InitEffect(IDirect3DDevice9* pDevice);
 IDirect3DVertexDeclaration9* InitVertexDeclaration(IDirect3DDevice9* pDevice);
 
 IDirect3DVertexShader9* InitVertexShader(IDirect3DDevice9* pDevice, ID3DXConstantTable** ppConstantTable);
+IDirect3DVertexShader9* InitVertexShaderTest(IDirect3DDevice9* pDevice, ID3DXConstantTable** ppConstantTable);
 IDirect3DPixelShader9* InitPixelShader(IDirect3DDevice9* pDevice, ID3DXConstantTable** ppConstantTable);
 
 HINSTANCE			InitApplication();
@@ -113,6 +126,9 @@ IDirect3DDevice9* InitDevice(IDirect3D9* pD3D9, HWND hWnd)
 
 	D3DCAPS9 caps;
 	pD3D9->GetDeviceCaps(g_AdapterID, g_DeviceType, &caps);
+
+	cout << "VS.Version: " << hex << caps.VertexShaderVersion << endl;
+	cout << "PS.Version: " << hex << caps.PixelShaderVersion << endl;
 
 	unsigned int uVertexProcessType = 0;
 
@@ -296,6 +312,48 @@ IDirect3DVertexShader9* InitVertexShader(IDirect3DDevice9* pDevice, ID3DXConstan
 	hResult = g_pDevice->CreateVertexShader((DWORD*)pShaderBuffer->GetBufferPointer(), &pVertexShader);
 	if (FAILED(hResult))
 	{
+		cout << "Create vertex shader failed_ : " << hResult << endl;
+	}
+
+	(*ppConstantTable)->SetDefaults(pDevice);
+
+	if (pShaderBuffer)
+	{
+		pShaderBuffer->Release();
+	}
+
+	if (pErrorBuffer)
+	{
+		pErrorBuffer->Release();
+	}
+
+	return pVertexShader;
+}
+
+IDirect3DVertexShader9* InitVertexShaderTest(IDirect3DDevice9* pDevice, ID3DXConstantTable** ppConstantTable)
+{
+	ID3DXBuffer* pShaderBuffer = nullptr;
+	ID3DXBuffer* pErrorBuffer = nullptr;
+	IDirect3DVertexShader9* pVertexShader = nullptr;
+
+	HRESULT hResult = D3DXCompileShaderFromFile(
+		g_VSConstantBufferTest,
+		nullptr,
+		nullptr,
+		"VSTest",
+		"vs_3_0",
+		D3DXSHADER_ENABLE_BACKWARDS_COMPATIBILITY,
+		&pShaderBuffer,
+		&pErrorBuffer,
+		ppConstantTable);
+	if (FAILED(hResult))
+	{
+		cout << "Compile vertex shader failed : " << hResult << endl;
+	}
+
+	hResult = g_pDevice->CreateVertexShader((DWORD*)pShaderBuffer->GetBufferPointer(), &pVertexShader);
+	if (FAILED(hResult))
+	{
 		cout << "Create vertex shader failed : " << hResult << endl;
 	}
 
@@ -459,22 +517,46 @@ int main()
 
 	g_pD3D9 = InitD3D9();
 	g_pDevice = InitDevice(g_pD3D9, g_hWnd);
+
 	g_pVertexBuffer = InitVertexBuffer(g_pDevice);
 	g_pIndexBuffer = InitIndexBuffer(g_pDevice);
 	g_pVertexDeclaration = InitVertexDeclaration(g_pDevice);
 
+	float fSize = 300;
 	const unsigned int uVertexCount = 4;
-	VertexData vertices[uVertexCount] = {
-		{  0,  0, 0 },
-		{  0, 10, 0 },
-		{ 10, 10, 0 },
-		{ 10,  0, 0 }
+	/*VertexDataP4fU2f vertices[uVertexCount] = {
+		{ fSize,     fSize,     0.1, 1, 0,  0 },
+		{ fSize,     fSize * 2, 0.1, 1, 0, -1 },
+		{ fSize * 2, fSize * 2, 0.1, 1, 1, -1 },
+		{ fSize * 2, fSize,     0.1, 1, 1,  0 }
+	};*/
+
+	VertexDataP3fU2f vertices[uVertexCount] = {
+		{ 0, 0, 0, 0, 0 },
+		{ 0, fSize, 0, 0, -1 },
+		{ fSize, fSize, 0, 1, -1 },
+		{ fSize, 0, 0, 1, 0 }
 	};
 
 	const unsigned int uIndexCount = 6;
 	unsigned short indices[uIndexCount] = { 0, 1, 2, 2, 3, 0 };
 
+	g_pDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_CW);
+	g_pDevice->SetRenderState(D3DRS_ZENABLE, FALSE);
+
 	HRESULT hResult = g_pDevice->SetVertexDeclaration(g_pVertexDeclaration);
+	/*HRESULT hResult = g_pDevice->SetFVF(D3DFVF_XYZRHW | D3DFVF_TEX1);
+	
+	g_pDevice->SetVertexShader(NULL);
+	g_pDevice->SetPixelShader(NULL);
+
+	g_pDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_SELECTARG2);
+	g_pDevice->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_TEXTURE);
+	g_pDevice->SetTextureStageState(1, D3DTSS_COLOROP, D3DTOP_DISABLE);
+
+	g_pDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_SELECTARG2);
+	g_pDevice->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_TEXTURE);
+	g_pDevice->SetTextureStageState(1, D3DTSS_ALPHAOP, D3DTOP_DISABLE);*/
 
 	void* pBuffer;
 
@@ -486,13 +568,25 @@ int main()
 	memcpy_s(pBuffer, sizeof(indices), indices, sizeof(indices));
 	hResult = g_pIndexBuffer->Unlock();
 
-	hResult = g_pDevice->SetStreamSource(0, g_pVertexBuffer, 0, sizeof(VertexData));
+	hResult = g_pDevice->SetStreamSource(0, g_pVertexBuffer, 0, sizeof(VertexDataP4fU2f));
 	hResult = g_pDevice->SetIndices(g_pIndexBuffer);
 
+	IDirect3DTexture9* pTexture;
+	D3DXCreateTextureFromFile(g_pDevice, "C:/Users/CHENGXU95/Pictures/{31C19DC3-0758-4AEE-8BBA-0ABCC4918BB1}.jpg", &pTexture);
+
 	g_pVertexShader = InitVertexShader(g_pDevice, &g_pVertexConstantTable);
+	g_pVSTest = InitVertexShaderTest(g_pDevice, &g_pVSTestConstantTable);
 	g_pPixelShader = InitPixelShader(g_pDevice, &g_pPixelConstantTable);
+
 	g_pDevice->SetVertexShader(g_pVertexShader);
 	g_pDevice->SetPixelShader(g_pPixelShader);
+
+	/*D3DXHANDLE hTex = g_pPixelConstantTable->GetConstantByName(0, "sampler0");
+	UINT count;
+	D3DXCONSTANT_DESC TexDesc;
+	g_pPixelConstantTable->GetConstantDesc(hTex, &TexDesc, &count);
+	g_pDevice->SetTexture(TexDesc.RegisterIndex, pTexture);*/
+	g_pDevice->SetTexture(0, pTexture);
 
 	MSG msg = { 0 };
 	while (WM_QUIT != msg.message)
@@ -511,21 +605,7 @@ int main()
 			*/
 			g_pDevice->BeginScene();
 
-			hResult = g_pDevice->Clear(0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_ARGB(255, 0, 0, 0), 1.0f, 0);
-
-			/*float pData[16] =
-			{
-				0.0f, 1.0f, 0.0f, 0.0f,
-				0.0f, 1.0f, 0.0f, 0.0f,
-				1.0f, 1.0f, 0.0f, 0.0f,
-				1.0f, 0.0f, 0.0f, 0.0f
-			};
-			D3DXHANDLE hPos = g_pVertexConstantTable->GetConstantByName(nullptr, "position");
-			hResult = g_pVertexConstantTable->SetFloatArray(g_pDevice, hPos, pData, 16);
-			if (FAILED(hResult))
-			{
-				cout << "Can't use handle as constant buffer." << endl;
-			}*/
+			hResult = g_pDevice->Clear(0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_ARGB(255, 0, 255, 0), 1.0f, 0);
 
 			hResult = g_pDevice->DrawIndexedPrimitive(
 				D3DPT_TRIANGLELIST,		// Í¼ÔªÀàÐÍ
@@ -540,7 +620,6 @@ int main()
 				cout << "Draw indexed primitive failed : " << hResult << endl;
 				g_bFrameStarted = true;
 			}
-
 			g_pDevice->EndScene();
 
 			hResult = g_pDevice->Present(nullptr, nullptr, nullptr, nullptr);

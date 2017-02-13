@@ -15,19 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="D3D9Sample.cpp">
+    <ClCompile Include="StaticKeyWord1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticKeyWord0.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Pixel.hlsl">
-      <Filter>资源文件</Filter>
-    </FxCompile>
-    <FxCompile Include="Vertex.hlsl">
-      <Filter>资源文件</Filter>
-    </FxCompile>
-    <FxCompile Include="VertexConstantBufferTest.hlsl">
-      <Filter>资源文件</Filter>
-    </FxCompile>
+    <ClInclude Include="StaticKeyWord0.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticKeyWord1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

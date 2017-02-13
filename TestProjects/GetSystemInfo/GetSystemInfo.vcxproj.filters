@@ -15,19 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="D3D9Sample.cpp">
+    <ClCompile Include="GetSystemInfo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GetSystemInfo_Main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Pixel.hlsl">
-      <Filter>资源文件</Filter>
-    </FxCompile>
-    <FxCompile Include="Vertex.hlsl">
-      <Filter>资源文件</Filter>
-    </FxCompile>
-    <FxCompile Include="VertexConstantBufferTest.hlsl">
-      <Filter>资源文件</Filter>
-    </FxCompile>
+    <ClInclude Include="GetSystemInfo.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

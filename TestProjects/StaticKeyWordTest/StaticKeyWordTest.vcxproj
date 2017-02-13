@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F8403430-067C-4562-82BE-59E5EB822FED}</ProjectGuid>
-    <RootNamespace>D3D9Sample</RootNamespace>
-    <ProjectName>0020. D3D9Sample</ProjectName>
+    <ProjectGuid>{35EB4A07-8194-4E0C-90AB-B775BBA39D2C}</ProjectGuid>
+    <RootNamespace>StaticKeyWordTest</RootNamespace>
+    <ProjectName>0033. StaticKeyWordTest</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -39,14 +39,7 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>..\TestUtils;$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\$(Configuration);$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>..\TestUtils;$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\$(Configuration);$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -55,7 +48,6 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3d9.lib;d3dcompiler.lib;d3dx9d.lib;dxerr.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -70,24 +62,15 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>d3d9.lib;d3dx9.lib;d3dcompiler.lib;dxerr.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="D3D9Sample.cpp" />
+    <ClInclude Include="StaticKeyWord0.h" />
+    <ClInclude Include="StaticKeyWord1.h" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Pixel.hlsl">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </FxCompile>
-    <FxCompile Include="Vertex.hlsl">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </FxCompile>
-    <FxCompile Include="VertexConstantBufferTest.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </FxCompile>
+    <ClCompile Include="StaticKeyWord0.cpp" />
+    <ClCompile Include="StaticKeyWord1.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
